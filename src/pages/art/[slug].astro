@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { artworks, url, srcset, size } from '../../lib/gallery';
+export function getStaticPaths() { return artworks.map(art => ({ params: { slug: art.slug }, props: { art } })); }
+const { art } = Astro.props;
+const initial = art.downloads.find(d => d.id === 'desktop') ?? art.downloads[0];
+const preview = art.previews.landscape.at(-1)!;
+const next = artworks[(artworks.findIndex(a => a.slug === art.slug) + 1) % artworks.length];
+---
+<Layout title={art.title} description={art.description} social={art.social} socialAlt={art.alt}>
+  <a class="back-link" href={url()}>← All paintings</a>
+  <section class="artwork-heading"><p class="eyebrow">{art.tags.join(' / ')}</p><h1>{art.title}</h1><p>{art.description}</p></section>
+  <div class="viewer" id="viewer"><img id="selected-preview" data-art-image src={url(preview.url)} srcset={srcset(art.previews.landscape)} sizes="(min-width:1440px) 1312px, calc(100vw - 40px)" width={preview.width} height={preview.height} alt={art.alt} fetchpriority="high" decoding="async" /><p class="image-error" hidden>The preview could not load. You can still use the download links below.</p></div>
+  <div class="download-panel">
+    <div><h2>Download</h2><p id="preview-caption" class="muted">Landscape composition · Preview of your selected format</p></div>
+    {initial ? <div class="download-controls">
+      <label for="resolution">Choose a resolution</label>
+      <select id="resolution" aria-describedby="download-info">{art.downloads.map(d => <option value={url(d.url)} selected={d.id === initial.id} data-preview={url(d.preview)} data-width={d.previewWidth} data-height={d.previewHeight} data-info={`${d.width} × ${d.height} PNG · ${size(d.bytes)}${d.upscaled ? ' · Enlarged from a smaller source' : ' · No enlargement'}`} data-caption={`${d.composition === 'portrait' ? 'Original portrait' : 'Landscape composition'} · ${d.aspect} crop`} data-filename={d.url.split('/').at(-1)}>{d.label} — {d.width} × {d.height}</option>)}</select>
+      <p id="download-info" class="download-info" aria-live="polite">{initial.width} × {initial.height} PNG · {size(initial.bytes)}{initial.upscaled && ' · Enlarged from a smaller source'}</p>
+      <a class="download-button" id="download" href={url(initial.url)} download={initial.url.split('/').at(-1)}>Download PNG <span aria-hidden="true">↓</span></a>
+    </div> : <p>No downloads are available yet. Please return to the collection.</p>}
+  </div>
+  <noscript><p>JavaScript is off. Choose a direct download below:</p><ul>{art.downloads.map(d=><li><a href={url(d.url)} download>{d.label} · {d.width} × {d.height} PNG</a></li>)}</ul></noscript>
+  <details class="format-notes"><summary>About the formats & image quality</summary><div><p>The portrait is the approved original composition. The landscape was newly composed using it as a reference. Narrow downloads use the portrait, keeping its vertical composition.</p><p>The original portrait is {art.sources.portrait.width} × {art.sources.portrait.height}; the generated landscape is {art.sources.landscape.width} × {art.sources.landscape.height}. The requested 1080 × 2340 and 3840 × 2160 files are enlarged with Lanczos resampling. The 4K file has those exact dimensions, but was not generated natively at 4K. Other available sizes are not enlarged.</p><p>All downloads are PNGs in sRGB. The preview changes to show the selected crop. Pixel dimensions describe the file, without promising compatibility with a specific device.</p><ul class="dimension-list">{art.downloads.map(d=><li><a href={url(d.url)} download>{d.width} × {d.height}</a><span>{d.label} · {size(d.bytes)}</span></li>)}</ul>{art.unavailable.length > 0 && <p>Some presets are unavailable because the source is too small and upscaling is disabled.</p>}</div></details>
+  {next && next.slug !== art.slug && <a class="next-art" href={url(`art/${next.slug}/`)}><span class="eyebrow">NEXT PAINTING</span><span>{next.title} <span aria-hidden="true">→</span></span></a>}
+  <script>
+    const select = document.querySelector<HTMLSelectElement>('#resolution');
+    const image = document.querySelector<HTMLImageElement>('#selected-preview');
+    const download = document.querySelector<HTMLAnchorElement>('#download');
+    const info = document.querySelector('#download-info');
+    const caption = document.querySelector('#preview-caption');
+    function update() {
+      const option = select?.selectedOptions[0];
+      if (!option || !image || !download) return;
+      image.hidden = false;
+      const error = image.parentElement?.querySelector<HTMLElement>('.image-error');
+      if (error) error.hidden = true;
+      image.removeAttribute('srcset');
+      image.src = option.dataset.preview!;
+      image.width = Number(option.dataset.width);
+      image.height = Number(option.dataset.height);
+      download.href = option.value;
+      download.download = option.dataset.filename!;
+      if (info) info.textContent = option.dataset.info!;
+      if (caption) caption.textContent = option.dataset.caption!;
+    }
+    select?.addEventListener('change', update);
+    // Browsers can restore form selection after back navigation.
+    window.addEventListener('pageshow', () => { if (select?.selectedOptions[0]?.value !== download?.getAttribute('href')) update(); });
+  </script>
+</Layout>

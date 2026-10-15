@@ -1,0 +1,9 @@
+[
+  { "id": "phone", "label": "Phone", "width": 1080, "height": 2340, "aspect": "6:13", "composition": "portrait", "required": true },
+  { "id": "desktop", "label": "Desktop 4K", "width": 3840, "height": 2160, "aspect": "16:9", "composition": "landscape", "required": true },
+  { "id": "phone-9-16", "label": "Phone · 9:16", "width": 720, "height": 1280, "aspect": "9:16", "composition": "portrait" },
+  { "id": "tablet", "label": "Tablet · 4:3", "width": 1024, "height": 768, "aspect": "4:3", "composition": "landscape" },
+  { "id": "desktop-hd", "label": "Desktop · 16:9", "width": 1600, "height": 900, "aspect": "16:9", "composition": "landscape" },
+  { "id": "desktop-16-10", "label": "Desktop · 16:10", "width": 1440, "height": 900, "aspect": "16:10", "composition": "landscape" },
+  { "id": "ultrawide", "label": "Ultrawide · 64:27", "width": 1536, "height": 648, "aspect": "64:27", "composition": "landscape" }
+]

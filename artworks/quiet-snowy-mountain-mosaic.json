@@ -1,0 +1,95 @@
+{
+  "slug": "quiet-snowy-mountain-mosaic",
+  "title": "Quiet Snowy Mountain Mosaic",
+  "description": "Overlapping snowy mountain forms in pale patchwork colors, with dark conifers and fine botanical lines.",
+  "tags": [
+    "Mountains",
+    "Bauhaus-inspired",
+    "Winter"
+  ],
+  "alt": "Pale patchwork mountain slopes with dark symbolic conifers, thin seed stems and a small ochre sun.",
+  "order": 1,
+  "status": "published",
+  "sources": {
+    "portrait": {
+      "file": "assets/masters/quiet-snowy-mountain-mosaic-portrait.png",
+      "width": 841,
+      "height": 1870,
+      "composition": "portrait",
+      "provenance": "Exact approved AI-generated portrait supplied by Ian Rastall; original generator and generation date not supplied.",
+      "color": "Untagged RGB interpreted as sRGB."
+    },
+    "landscape": {
+      "file": "assets/masters/quiet-snowy-mountain-mosaic-landscape.png",
+      "width": 1672,
+      "height": 941,
+      "composition": "landscape",
+      "provenance": "New composition made with built-in image_gen on 2026-10-15, using the approved portrait as its reference. Output is 1672×941, not native 4K. Full prompt retained in docs/generation-prompts.json.",
+      "color": "Untagged RGB interpreted as sRGB."
+    }
+  },
+  "masterVariants": {
+    "portrait": "portrait",
+    "landscape": "landscape"
+  },
+  "crops": {
+    "6:13": {
+      "source": "portrait",
+      "focal": [
+        0.5,
+        0.49
+      ]
+    },
+    "9:16": {
+      "source": "portrait",
+      "focal": [
+        0.5,
+        0.42
+      ]
+    },
+    "16:9": {
+      "source": "landscape",
+      "focal": [
+        0.5,
+        0.5
+      ]
+    },
+    "4:3": {
+      "source": "landscape",
+      "focal": [
+        0.55,
+        0.5
+      ]
+    },
+    "16:10": {
+      "source": "landscape",
+      "focal": [
+        0.55,
+        0.5
+      ]
+    },
+    "64:27": {
+      "source": "landscape",
+      "focal": [
+        0.5,
+        0.42
+      ]
+    }
+  },
+  "downloads": {
+    "presets": [
+      "phone",
+      "desktop",
+      "phone-9-16",
+      "tablet",
+      "desktop-hd",
+      "desktop-16-10",
+      "ultrawide"
+    ],
+    "allowUpscale": {
+      "phone": "Required 1080×2340 output exceeds the approved 841×1870 portrait. Lanczos3 enlargement is explicit.",
+      "desktop": "Required 3840×2160 output exceeds the generated 1672×941 landscape. Lanczos3 enlargement is explicit; not native 4K."
+    }
+  },
+  "compositionReview": "Reviewed on 2026-10-15: the 6:13 crop retains the original vertical rhythm. The 9:16 and ultrawide focal points are raised to retain the ochre sun. Tablet and 16:10 crops retain overlapping ridges and symbolic trees."
+}

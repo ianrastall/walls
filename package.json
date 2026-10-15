@@ -1,0 +1,16 @@
+{
+  "name": "walls",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.22.0" },
+  "scripts": {
+    "dev": "npm run images && astro dev --host 127.0.0.1",
+    "images": "node scripts/images.mjs",
+    "build": "npm run images && astro build && node scripts/verify.mjs",
+    "preview": "astro preview --host 127.0.0.1",
+    "test": "node --test scripts/crops.test.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": { "astro": "7.4.0", "sharp": "0.35.5" }
+}

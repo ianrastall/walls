@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { artworks, url, srcset } from '../lib/gallery';
+---
+<Layout>
+  <section class="intro" aria-labelledby="collection-title">
+    <div><p class="eyebrow">AI-GENERATED WALLPAPERS</p><h1 id="collection-title">Walls</h1></div>
+    <p class="intro-note">Curated and art-directed by Ian Rastall.<br />Portrait and landscape compositions.</p>
+  </section>
+  <div class="collection-bar"><p>{String(artworks.length).padStart(2, '0')} paintings</p><p>Portrait & landscape · PNG downloads</p></div>
+  {artworks.length ? <div class="gallery">{artworks.map((art, i) => {
+    const previews = art.previews.landscape;
+    const preview = previews[1] ?? previews[0];
+    return <article class:list={['gallery-item', { featured: i === 0 }]}>
+      <a class="art-link" href={url(`art/${art.slug}/`)} aria-label={`View ${art.title}`}>
+        <div class="art-image"><img data-art-image src={url(preview.url)} srcset={srcset(previews)} sizes={i === 0 ? '(min-width: 1440px) 1312px, (min-width: 700px) calc(100vw - 128px), calc(100vw - 40px)' : '(min-width: 1440px) 632px, (min-width: 900px) calc((100vw - 168px)/2), calc(100vw - 40px)'} width={preview.width} height={preview.height} alt={art.alt} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" /><p class="image-error" hidden>Preview unavailable. Open the painting to choose a download.</p></div>
+        <div class="art-caption"><div><p class="eyebrow">{String(i + 1).padStart(2, '0')} / {art.tags[0]}</p><h2>{art.title}</h2></div><span class="view-arrow" aria-hidden="true">↗</span></div>
+      </a>
+    </article>;
+  })}</div> : <div class="empty"><h2>No paintings yet.</h2><p>Published paintings will appear here.</p></div>}
+  <section id="about" class="about" aria-labelledby="about-title"><p class="eyebrow">ABOUT WALLS</p><div><h2 id="about-title">About the collection</h2><p>Walls is a collection of AI-generated art, curated and art-directed by Ian Rastall.</p><p>The snow and meadow paintings are inspired by Bauhaus painting. The nocturne uses a more atmospheric approach. Each work has an original portrait and a separately generated landscape composition.</p><p class="muted">Downloads are PNG files. Dimensions are listed in pixels, and any enlargement is noted beside the download.</p></div></section>
+</Layout>

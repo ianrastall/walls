@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import { artworks, url } from '../lib/gallery';
+const { title = 'Walls', description = 'A small collection of AI-generated art wallpapers, curated and art-directed by Ian Rastall.', social = artworks[0]?.social, socialAlt = artworks[0]?.alt, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const shareImage = social ? new URL(url(social), Astro.site) : null;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#151716" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Walls" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {shareImage && <><meta property="og:image" content={shareImage} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content={socialAlt} /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image" content={shareImage} /></>}
+    <title>{title === 'Walls' ? 'Walls — Art wallpapers by Ian Rastall' : `${title} — Walls`}</title>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href={url()} aria-label="Walls, gallery home">Walls<span aria-hidden="true">.</span></a>
+      <nav aria-label="Main navigation"><a href={url()} aria-current={Astro.url.pathname === url() ? 'page' : undefined}>Collection</a><a href={url('#about')}>About</a></nav>
+    </header>
+    <main id="main" class="wrap"><slot /></main>
+    <footer class="wrap"><span>Walls · Ian Rastall</span><span>AI-generated artwork</span><a href="https://github.com/ianrastall/walls">View on GitHub <span aria-hidden="true">↗</span></a></footer>
+    <script>
+      document.querySelectorAll<HTMLImageElement>('img[data-art-image]').forEach(img => {
+        const showError = () => { img.hidden = true; const message = img.parentElement?.querySelector<HTMLElement>('.image-error'); if (message) message.hidden = false; };
+        img.addEventListener('error', showError);
+        if (img.complete && img.naturalWidth === 0) showError();
+      });
+    </script>
+  </body>
+</html>

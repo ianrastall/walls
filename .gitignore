@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.cache/
+public/generated/
+src/generated/
+review/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store

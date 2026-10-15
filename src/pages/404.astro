@@ -1,0 +1,5 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { url } from '../lib/gallery';
+---
+<Layout title="Page not found" noindex><section class="empty"><p class="eyebrow">404</p><h1>Page not found.</h1><p>The painting or page you requested could not be found.</p><a class="download-button" href={url()}>Return to the collection →</a></section></Layout>
