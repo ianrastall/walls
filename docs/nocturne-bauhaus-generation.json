@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-15",
+  "tool": "Built-in image_gen",
+  "request": "Rework the nocturne using the Bauhaus painting language established by the other two paintings.",
+  "landscape": {
+    "prompt": "Use case: style-transfer. Make one new landscape artwork for Walls, 16:9, requested 3840×2160 PNG; native target resolution if supported. Input image 1 (nocturne): SUBJECT AND COLOR RELATIONSHIP reference, not brushwork. Input image 2 (snow mosaic) and image 3 (wildflower meadow): the approved PAINTING LANGUAGE, texture, abstraction and handmade character to use. Translate the nocturne's ambiguous mountains, immense space, and wandering current of pale light into the same lyrical Bauhaus/Klee-inspired painterly language as images 2 and 3. Preserve deep ink/navy blue, muted turquoise, dusty lavender, warm ivory and restrained gold, but express them through irregular translucent color patches, uneven tonal cells and broad broken planes. Let nature be suggested rather than depicted: mountains emerge as interrupted triangular and trapezoid color relationships, a luminous current takes an irregular wandering path through stepped bands and open spaces, fine tentative ink/graphite lines drift through the patches, occasional sparse seed-head/tree-like symbols supply scale. Create an original compelling wide composition, asymmetrically balanced with layered depth, quieter intervals and subtle warm-cool tension. Uneven watercolor and thin matte oil on absorbent worn paper/plaster, rubbed edges, visible grain, delicate stains and color overlaps. Keep the mysterious nocturnal subject abstract: no conventional mountain vista with a mosaic filter. Avoid continuing the Turner-like turbulent impasto and swirling foam; translate its movement into line, spacing and color planes. Avoid neat regular grids, dense decorative tiles everywhere, hard vector shapes, shiny digital fantasy, dramatic photorealistic scenery, strong outlined cartoon mountains, poster-like graphics, mirrored repetition, text, signatures, watermarks and borders. One unified artwork filling the whole canvas, no montage or sidebars.",
+    "referenceRoles": [
+      "Previous nocturne landscape: subject and color relationships",
+      "Approved snow portrait: painting language",
+      "Approved meadow portrait: painting language"
+    ]
+  }
+}

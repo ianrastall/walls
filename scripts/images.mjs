@@ -88,7 +88,7 @@ for (const file of (await readdir('artworks')).filter(f => f.endsWith('.json')).
     const url = await output(`generated/${art.slug}/${art.slug}-${preset.width}x${preset.height}.png`, buffer);
     const { data, info } = await webp(normalized(source.file).extract(crop).resize({ width: Math.min(960, crop.width), height: 1000, fit: 'inside', kernel: 'lanczos3', withoutEnlargement: true })).toBuffer({ resolveWithObject: true });
     const preview = await output(`generated/${art.slug}/crop-${id}.webp`, data);
-    downloads.push({ ...preset, url, preview, previewWidth: info.width, previewHeight: info.height, source: setting.source, crop, upscaled, upscaleFactor: Number(scale.toFixed(4)), upscaleReason, bytes: buffer.length, sha256: hash(buffer) });
+    downloads.push({ ...preset, url, preview, previewWidth: info.width, previewHeight: info.height, source: setting.source, alt: source.alt ?? art.alt, compositionLabel: source.label ?? (preset.composition === 'portrait' ? 'Original portrait' : 'Landscape composition'), crop, upscaled, upscaleFactor: Number(scale.toFixed(4)), upscaleReason, bytes: buffer.length, sha256: hash(buffer) });
   }
   const landscape = sourceInfo[art.masterVariants.landscape];
   const social = await output(`generated/${art.slug}/social.jpg`, await normalized(landscape.file).resize(1200, 630, { fit: 'cover', position: 'centre', kernel: 'lanczos3' }).withIccProfile('srgb').jpeg({ quality: 84, mozjpeg: true }).toBuffer());

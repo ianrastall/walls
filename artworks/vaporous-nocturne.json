@@ -1,13 +1,13 @@
 {
   "slug": "vaporous-nocturne",
   "title": "Vaporous Nocturne over Fading Mountains",
-  "description": "Dark mountain shapes, turquoise mist and veils of gold, with a broad current of light crossing the composition.",
+  "description": "An abstract nocturne in irregular blue, turquoise and lavender color planes, with a winding band of gold and fine botanical marks.",
   "tags": [
     "Mountains",
     "Nocturnes",
-    "Atmospheric"
+    "Bauhaus-inspired"
   ],
-  "alt": "Deep blue mountain shapes dissolving into swirling turquoise mist, lavender shadows and a sweeping current of golden light.",
+  "alt": "Irregular blue and turquoise mountain planes, lavender patches, fine dark tree and seed-head symbols, and a pale gold current beneath a light circular form.",
   "order": 3,
   "status": "published",
   "sources": {
@@ -17,9 +17,20 @@
       "height": 1870,
       "composition": "portrait",
       "provenance": "Exact approved AI-generated portrait supplied by Ian Rastall; original generator and generation date not supplied.",
-      "color": "Untagged RGB interpreted as sRGB."
+      "color": "Untagged RGB interpreted as sRGB.",
+      "alt": "Deep blue mountain shapes dissolving into swirling turquoise mist, lavender shadows and a sweeping current of golden light.",
+      "label": "Original atmospheric portrait"
     },
     "landscape": {
+      "file": "assets/masters/vaporous-nocturne-bauhaus-landscape.png",
+      "width": 1672,
+      "height": 941,
+      "composition": "landscape",
+      "provenance": "Bauhaus-style revision generated with built-in image_gen on 2026-10-15, at Ian Rastall's request. References: previous nocturne for subject/color and approved snow/meadow for painting language. Output 1672×941, not native 4K. Prompt: docs/nocturne-bauhaus-generation.json.",
+      "color": "Untagged RGB interpreted as sRGB.",
+      "label": "Bauhaus landscape"
+    },
+    "previousLandscape": {
       "file": "assets/masters/vaporous-nocturne-landscape.png",
       "width": 1672,
       "height": 941,
@@ -91,5 +102,6 @@
       "desktop": "Required 3840×2160 output exceeds the generated 1672×941 landscape. Lanczos3 enlargement is explicit; not native 4K."
     }
   },
-  "compositionReview": "Reviewed on 2026-10-15: vertical downloads use the original winding light current. Tablet framing shifts right toward the glow; the ultrawide crop keeps both the glow and the sweeping turquoise current. The separately composed landscape preserves the dark/light relationship."
+  "compositionReview": "Bauhaus landscape revision reviewed on 2026-10-15: the 4:3 and 16:10 crops shift right to retain the pale light form and winding gold band. The 64:27 crop retains the light form and the central band. Phone formats retain the previously reviewed original portrait. The first atmospheric landscape remains preserved as previousLandscape.",
+  "formatNote": "The landscape is a Bauhaus-inspired revision. Phone downloads retain the original atmospheric portrait."
 }

@@ -3,6 +3,7 @@
 Reviewed on 2026-10-15.
 
 - Three source portraits are byte-for-byte copies of the supplied PNGs. Three separately generated landscapes are preserved as returned by the built-in image tool.
+- The nocturne landscape was subsequently revised in a Bauhaus-inspired treatment. The revised tablet and ultrawide crops were reviewed to retain the pale light form and winding gold band. The previous landscape is preserved; the original atmospheric portrait remains explicitly labeled for phone formats.
 - All seven crops per painting were visually reviewed in the contact sheet. Snow's 9:16 focal point and snow/meadow ultrawide focal points were adjusted to retain their suns. The narrow formats use the original portraits.
 - All 21 downloadable files are PNGs with exact labeled pixel dimensions and embedded sRGB profiles. The six mandatory phone/desktop files are explicitly marked as enlarged.
 - The static gallery has five pages, with 125 local URL references verified under `/walls/`. Gallery previews are WebP, not full PNG downloads. Social previews are JPEG.

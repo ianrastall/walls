@@ -45,6 +45,8 @@ Source files are kept exactly as supplied/generated. The initial sources are unt
 
 The generation tool and full prompts are recorded in `docs/generation-prompts.json`. The approved portrait generator/date were not supplied, so those details are not invented. These source PNGs are 8-bit RGB.
 
+The nocturne's Bauhaus landscape revision is documented separately in `docs/nocturne-bauhaus-generation.json`. Its original portrait and earlier atmospheric landscape remain preserved. The site labels the different portrait/landscape treatments; each download can carry its own source alt text and composition label.
+
 ## Derived assets and determinism
 
 - Landscape previews: 480, 960 and 1600 pixel widths; portrait previews: 420 and 840 widths. Widths are capped to the source.
@@ -52,6 +54,7 @@ The generation tool and full prompts are recorded in `docs/generation-prompts.js
 - Each download has a lightweight crop preview. Resolution changes update the preview and the download link together.
 - PNG: exact requested dimensions, Lanczos3 resampling, compression level 9, adaptive filtering, full color (not palette quantization).
 - Social sharing: 1200 × 630 JPEG per artwork.
+- Public asset URLs include a deterministic revision query derived from the artwork record, so a revised composition or crop does not reuse the previous version from a visitor's browser cache.
 - Review: `review/index.html`, `review/contact-sheet.webp`, and `review/asset-report.json`.
 
 The cache fingerprint includes the record, presets, master hashes, crop code, pipeline code and Sharp/libvips versions. It checks cached output hashes before reuse. Content-equal files are not rewritten, including the generated catalog and review files. No timestamps or random values are embedded. Repeated generation with the same runtime produces the same bytes; codec/platform changes can alter encoding, so the lockfile and runtime versions matter. Typography in the local review sheet may differ by platform; it is not a published/downloadable artwork.
