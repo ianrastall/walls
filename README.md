@@ -21,9 +21,9 @@ The build generates the images, builds the static pages, then verifies exact PNG
 
 ## The initial artwork
 
-There are three paintings: **Quiet Snowy Mountain Mosaic**, **Lyrical Wildflower Meadow**, and **Vaporous Nocturne over Fading Mountains**. Each has the exact supplied portrait and a separately generated landscape adaptation. At Ian's request, the nocturne landscape was then revised using the Bauhaus painting language of the first two works. Its first atmospheric landscape is also preserved in `assets/masters/` as a previous source; phone downloads retain the original atmospheric portrait.
+There are three paintings: **Quiet Snowy Mountain Mosaic**, **Lyrical Wildflower Meadow**, and **Vaporous Nocturne over Fading Mountains**. Each has the exact supplied portrait and a separately generated landscape adaptation. At Ian's request, the nocturne was then revised in both landscape and a separately composed portrait using the Bauhaus painting language of the first two works. Its original atmospheric portrait and first landscape are also preserved in `assets/masters/` as previous sources. The nocturne downloads now use the two Bauhaus compositions.
 
-The preserved portraits are **841 × 1870**. The built-in image generation tool returned **1672 × 941** landscapes, despite the requested 3840 × 2160 format. These files are retained unchanged in `assets/masters/`. The requested desktop **3840 × 2160 PNG** and phone **1080 × 2340 PNG** downloads are explicit Lanczos3 enlargements, not native 4K generation. The small ratio adjustment is cropped without stretching. Full generation prompts are in [docs/generation-prompts.json](docs/generation-prompts.json) and [the nocturne revision record](docs/nocturne-bauhaus-generation.json).
+The preserved original portraits are **841 × 1870**. The built-in image generation tool returned **1672 × 941** landscapes, despite the requested 3840 × 2160 format, and **853 × 1844** for the revised nocturne portrait. These files are retained unchanged in `assets/masters/`. The requested desktop **3840 × 2160 PNG** and phone **1080 × 2340 PNG** downloads are explicit Lanczos3 enlargements, not native 4K generation. The small ratio adjustment is cropped without stretching. Full generation prompts are in [docs/generation-prompts.json](docs/generation-prompts.json) and [the nocturne revision record](docs/nocturne-bauhaus-generation.json).
 
 The other five downloads per painting use smaller dimensions and do not enlarge their source. Square compositions have been deferred.
 
@@ -56,7 +56,7 @@ GitHub Actions builds from the committed lockfile, runs the crop tests and asset
 
 ## Hosting and storage
 
-Including the nocturne revision and its preserved earlier landscape, the masters total approximately **22.0 MiB**. The site is approximately **80.5 MiB**, including **74.7 MiB** of downloadable PNGs. Sources are committed once; generated PNGs, previews, intermediate renders and review sheets are not committed. Git LFS is not used.
+Including the nocturne revisions and their preserved earlier sources, the masters total approximately **25.4 MiB**. The site is approximately **81.6 MiB**, including **75.5 MiB** of downloadable PNGs. Sources are committed once; generated PNGs, previews, intermediate renders and review sheets are not committed. Git LFS is not used.
 
 As checked on 2026-10-15, GitHub documents a 1 GB published Pages site limit, a recommended 1 GB source repository limit and a soft 100 GB monthly bandwidth limit. The initial collection fits without a separate hosting service. Monitor bandwidth as downloads grow and check the actual build size before adding many images. A separate asset host should be introduced only if collection size or traffic calls for it.
 

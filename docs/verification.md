@@ -3,12 +3,12 @@
 Reviewed on 2026-10-15.
 
 - Three source portraits are byte-for-byte copies of the supplied PNGs. Three separately generated landscapes are preserved as returned by the built-in image tool.
-- The nocturne landscape was subsequently revised in a Bauhaus-inspired treatment. The revised tablet and ultrawide crops were reviewed to retain the pale light form and winding gold band. The previous landscape is preserved; the original atmospheric portrait remains explicitly labeled for phone formats.
-- All seven crops per painting were visually reviewed in the contact sheet. Snow's 9:16 focal point and snow/meadow ultrawide focal points were adjusted to retain their suns. The narrow formats use the original portraits.
+- The nocturne landscape and a separate portrait were subsequently revised in a Bauhaus-inspired treatment. The revised tablet and ultrawide crops retain the pale light form and winding gold band. The 6:13 phone crop uses almost the whole new portrait; the 9:16 crop also retains the light form, descending band and botanical marks. Both atmospheric sources are preserved unchanged.
+- All seven crops per painting were visually reviewed in the contact sheet. Snow's 9:16 focal point and snow/meadow ultrawide focal points were adjusted to retain their suns. The narrow formats use the original snow/meadow portraits and the revised Bauhaus nocturne portrait.
 - All 21 downloadable files are PNGs with exact labeled pixel dimensions and embedded sRGB profiles. The six mandatory phone/desktop files are explicitly marked as enlarged.
 - The static gallery has five pages, with 125 local URL references verified under `/walls/`. Gallery previews are WebP, not full PNG downloads. Social previews are JPEG.
 - Desktop layout reviewed at 1440 × 1000; mobile gallery and artwork/download layout reviewed at 390 × 844. No horizontal overflow was found.
-- The resolution selector was exercised through all seven options; the download URL and selected crop change together. The selected phone preview retains the original composition.
+- The resolution selector was exercised through all seven options; the download URL and selected crop change together. The nocturne phone preview and caption now use the separate Bauhaus portrait.
 - Keyboard navigation reaches the resolution selector and download link; the download focus outline is visible. The page has a skip link, labeled native selector, descriptive image alternatives, heading structure and a polite announcement of changed download details. Foreground colors were selected for contrast against the dark background. This is a targeted accessibility check, not a formal conformance audit.
 - The site has a 404 page, image-load fallback messages, a collection-empty state, and direct download links when JavaScript is disabled.
 - Crop tests check focal clamping, out-of-bounds rectangles and aspect mismatch. The build checks source/output hashes, mandatory presets, dimensions, color profiles, local references, preview budgets and published size.

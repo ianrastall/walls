@@ -6,9 +6,9 @@ Run `npm run images` from the repository root. Only Sharp and Node built-ins are
 
 | ID | Pixels | Aspect | Source | Reason |
 | --- | --- | --- | --- | --- |
-| phone | 1080 × 2340 | 6:13 | Original portrait | Ian's required phone dimensions |
+| phone | 1080 × 2340 | 6:13 | Portrait composition | Ian's required phone dimensions |
 | desktop | 3840 × 2160 | 16:9 | Landscape adaptation | Ian's required desktop dimensions |
-| phone-9-16 | 720 × 1280 | 9:16 | Original portrait | A less elongated phone format |
+| phone-9-16 | 720 × 1280 | 9:16 | Portrait composition | A less elongated phone format |
 | tablet | 1024 × 768 | 4:3 | Landscape adaptation | A common tablet aspect ratio |
 | desktop-hd | 1600 × 900 | 16:9 | Landscape adaptation | A smaller desktop output without enlargement |
 | desktop-16-10 | 1440 × 900 | 16:10 | Landscape adaptation | A common laptop/desktop aspect ratio |
@@ -33,7 +33,7 @@ For precise control, use an integer rectangle in source pixels:
 }
 ```
 
-A rectangle must remain within the source and match the target aspect, allowing at most one source pixel of rounding. The pipeline extracts it and resizes with `fit: cover`, so any final rounding is cropped rather than stretched. The `6:13` crop removes only a small amount at the top/bottom of these nearly matching portraits. The `9:16` crop is reviewed separately. Tablet crops select a narrower part of each wide composition; ultrawide crops remove some upper/lower image area.
+A rectangle must remain within the source and match the target aspect, allowing at most one source pixel of rounding. The pipeline extracts it and resizes with `fit: cover`, so any final rounding is cropped rather than stretched. The `6:13` crop removes only a small amount around the edges of these nearly matching portraits. The `9:16` crop is reviewed separately. Tablet crops select a narrower part of each wide composition; ultrawide crops remove some upper/lower image area.
 
 Change `source` when a new independently composed master works better. A square preset or square master is optional and currently not generated. New source images with EXIF orientation must first be saved as a separate, explicitly oriented master with the original also preserved; this prevents ambiguous pixel crop coordinates.
 
@@ -45,7 +45,7 @@ Source files are kept exactly as supplied/generated. The initial sources are unt
 
 The generation tool and full prompts are recorded in `docs/generation-prompts.json`. The approved portrait generator/date were not supplied, so those details are not invented. These source PNGs are 8-bit RGB.
 
-The nocturne's Bauhaus landscape revision is documented separately in `docs/nocturne-bauhaus-generation.json`. Its original portrait and earlier atmospheric landscape remain preserved. The site labels the different portrait/landscape treatments; each download can carry its own source alt text and composition label.
+The nocturne's Bauhaus landscape and separate portrait revisions are documented in `docs/nocturne-bauhaus-generation.json`. Its original portrait and earlier atmospheric landscape remain preserved. Downloads use the revised sources; each download carries source-specific alt text and a composition label.
 
 ## Derived assets and determinism
 

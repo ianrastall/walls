@@ -12,6 +12,16 @@
   "status": "published",
   "sources": {
     "portrait": {
+      "file": "assets/masters/vaporous-nocturne-bauhaus-portrait.png",
+      "width": 853,
+      "height": 1844,
+      "composition": "portrait",
+      "provenance": "Separately composed Bauhaus-style portrait generated with built-in image_gen on 2026-10-15, at Ian Rastall's request. References: revised nocturne landscape and approved snow/meadow portraits. Output 853×1844; requested 1080×2340 download is explicitly enlarged. Prompt: docs/nocturne-bauhaus-generation.json.",
+      "color": "Untagged RGB interpreted as sRGB.",
+      "alt": "A tall composition of irregular blue, turquoise and lavender planes, fine tree and seed-head marks, and a winding gold band descending from a pale light form.",
+      "label": "Bauhaus portrait"
+    },
+    "originalPortrait": {
       "file": "assets/masters/vaporous-nocturne-portrait.png",
       "width": 841,
       "height": 1870,
@@ -98,10 +108,10 @@
       "ultrawide"
     ],
     "allowUpscale": {
-      "phone": "Required 1080×2340 output exceeds the approved 841×1870 portrait. Lanczos3 enlargement is explicit.",
+      "phone": "Required 1080×2340 output exceeds the generated 853×1844 Bauhaus portrait. Lanczos3 enlargement is explicit.",
       "desktop": "Required 3840×2160 output exceeds the generated 1672×941 landscape. Lanczos3 enlargement is explicit; not native 4K."
     }
   },
-  "compositionReview": "Bauhaus landscape revision reviewed on 2026-10-15: the 4:3 and 16:10 crops shift right to retain the pale light form and winding gold band. The 64:27 crop retains the light form and the central band. Phone formats retain the previously reviewed original portrait. The first atmospheric landscape remains preserved as previousLandscape.",
-  "formatNote": "The landscape is a Bauhaus-inspired revision. Phone downloads retain the original atmospheric portrait."
+  "compositionReview": "Bauhaus landscape and separate portrait reviewed on 2026-10-15. The 4:3 and 16:10 landscape crops shift right to retain the pale light form and winding gold band. The 64:27 crop retains the light form and central band. The 6:13 portrait uses almost the whole separate tall composition; the 9:16 crop retains the light form, descending gold band and botanical marks. The atmospheric originals remain preserved as originalPortrait and previousLandscape.",
+  "formatNote": "The landscape and portrait are separately composed Bauhaus-inspired revisions."
 }
