@@ -1,0 +1,46 @@
+{
+  "slug": "klee-orchard",
+  "title": "Autumn Orchard",
+  "description": "An autumn orchard of translucent ochre, rust and sage fields, with delicate botanical marks, a hillside village and a winding teal stream.",
+  "tags": ["Autumn", "Klee-inspired", "Landscape"],
+  "alt": "Patchwork autumn orchard framed by dark trees, with fine botanical lines, a cream hillside village and a winding blue stream.",
+  "order": 4,
+  "status": "published",
+  "sources": {
+    "landscape": {
+      "file": "assets/masters/klee-orchard-landscape.png",
+      "width": 3840,
+      "height": 2160,
+      "composition": "landscape",
+      "label": "Landscape composition",
+      "provenance": "Exact approved desktop PNG supplied by Ian Rastall on 2026-10-22. Created with built-in image_gen as a Paul Klee-inspired reinterpretation of the earlier Bauhaus orchard. Generated at 1672×941, then resampled with System.Drawing HighQualityBicubic to 3840×2160 with a slight aspect adjustment; not native 4K. Preserved without further alteration.",
+      "color": "Untagged RGB interpreted as sRGB."
+    },
+    "portrait": {
+      "file": "assets/masters/klee-orchard-portrait.png",
+      "width": 830,
+      "height": 1896,
+      "composition": "portrait",
+      "label": "Separate phone composition",
+      "alt": "Tall patchwork autumn orchard between framing trees, with a cream village above terraces and a blue stream winding down the foreground.",
+      "provenance": "Separately composed with built-in image_gen on 2026-10-22 using the approved landscape as reference. Untouched 830×1896 generated output; prompt in docs/klee-orchard-generation.json.",
+      "color": "Untagged RGB interpreted as sRGB."
+    }
+  },
+  "masterVariants": { "portrait": "portrait", "landscape": "landscape" },
+  "crops": {
+    "6:13": { "source": "portrait", "focal": [0.5, 0.5] },
+    "9:16": { "source": "portrait", "focal": [0.5, 0.53] },
+    "16:9": { "source": "landscape", "focal": [0.5, 0.5] },
+    "4:3": { "source": "landscape", "focal": [0.58, 0.5] },
+    "16:10": { "source": "landscape", "focal": [0.53, 0.5] },
+    "64:27": { "source": "landscape", "focal": [0.5, 0.52] }
+  },
+  "downloads": {
+    "presets": ["phone", "desktop", "phone-9-16", "tablet", "desktop-hd", "desktop-16-10", "ultrawide"],
+    "allowUpscale": {
+      "phone": "Required 1080×2340 phone output exceeds the separately generated 830×1896 portrait. Lanczos3 enlargement is explicit."
+    }
+  },
+  "compositionReview": "Reviewed on 2026-10-22: the separate portrait retains both framing trunks, village, orchard terraces and the winding stream. Centered 6:13 removes only narrow top/bottom strips. The 9:16 crop prioritizes the village and stream, removing outer canopy and lowest foreground. Tablet and 16:10 favor the village and stream; ultrawide retains the village and orchard with reduced upper canopy and foreground. Landscape source was already enlarged before submission; all landscape downloads inherit that prior enlargement."
+}

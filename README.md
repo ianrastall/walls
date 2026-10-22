@@ -29,6 +29,8 @@ The other five downloads per painting use smaller dimensions and do not enlarge 
 
 ## Add a painting
 
+The collection also includes **Autumn Orchard**, a Paul Klee-inspired AI-generated landscape supplied by Ian on 2026-10-22, with a separately generated phone composition. The supplied 3840 × 2160 landscape was previously enlarged from 1672 × 941; it is preserved exactly as supplied. The untouched portrait master is 830 × 1896 and is enlarged with Lanczos3 for the 1080 × 2340 phone download. Generation and source history are recorded in [the orchard generation record](docs/klee-orchard-generation.json).
+
 1. Put the untouched source files in `assets/masters/`. Use descriptive, unique filenames. Keep an independent backup of original masters. Do not replace a master with a resized download.
 2. Copy one JSON record in `artworks/` to a new slug. This is the only hand-edited metadata record for that painting. Set `status` to `draft` while preparing it; draft records are excluded from the public gallery.
 3. Set its title, description, tags, alt text, order, source paths and measured dimensions. Record how each source was created and any previous resizing. Never attribute AI-generated work to a historical painter.

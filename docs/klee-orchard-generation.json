@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-22",
+  "tool": "built-in image_gen",
+  "artDirection": "Ian Rastall",
+  "influence": "Paul Klee; AI-generated work, not authored by the historical painter.",
+  "landscape": {
+    "source": "assets/masters/klee-orchard-landscape.png",
+    "suppliedDimensions": [3840, 2160],
+    "originalGenerationDimensions": [1672, 941],
+    "processing": "Earlier in this chat, generated from the Bauhaus orchard, then resampled to 3840×2160 with System.Drawing HighQualityBicubic. The exact user-approved supplied file is preserved as the landscape master."
+  },
+  "portrait": {
+    "source": "assets/masters/klee-orchard-portrait.png",
+    "reference": "assets/masters/klee-orchard-landscape.png",
+    "generatedDimensions": [830, 1896],
+    "prompt": "Create a separate tall portrait phone wallpaper adaptation of the attached Paul Klee-inspired autumn orchard painting. Output portrait aspect ratio 6:13, ideally 1080x2340 or highest available matching ratio. Recompose the whole scene for this tall narrow canvas rather than crop the landscape. Faithfully match the reference's Paul Klee-inspired delicate wandering dark ink lines, whimsical botanical glyphs, translucent patchwork color fields, watercolor and worn paper pigment texture, warm ochre gold, rust orange, dusty rose, olive sage, ivory and petrol teal palette. Two great patchwork tree trunks frame the sides, their branches form an airy canopy near the top; rolling terraced orchards with irregular disc crowns and slender cypresses lead to a tiny cream village with orange roofs in the upper middle distance. A lyrical blue teal stream winds vertically from the lower foreground toward the village through mosaic hills. Keep the village visible and distinct, balance foreground botanical signs with spacious luminous upper sky for phone clock readability. Dreamlike hand-painted geometry and intricate but gentle textures closely matching the supplied image. Full bleed, no lettering, no clock, no phone mockup, no signature, no watermark."
+  }
+}
