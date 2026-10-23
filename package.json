@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22.22.0" },
+  "engines": {
+    "node": ">=22.22.0"
+  },
   "scripts": {
     "dev": "npm run images && astro dev --host 127.0.0.1",
     "images": "node scripts/images.mjs",
@@ -12,5 +14,12 @@
     "test": "node --test scripts/crops.test.mjs",
     "verify": "node scripts/verify.mjs"
   },
-  "dependencies": { "astro": "7.4.0", "sharp": "0.35.5" }
+  "dependencies": {
+    "astro": "7.4.0",
+    "qrcode": "1.5.4",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "jsqr": "1.4.0"
+  }
 }

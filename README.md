@@ -19,6 +19,8 @@ Open the printed URL with the `/walls/` path. `npm run dev` runs the image pipel
 
 The build generates the images, builds the static pages, then verifies exact PNG dimensions, sRGB profiles, file hashes, mandatory formats, preview budgets, local links, and the site size. No runtime server or external font/image service is needed.
 
+Every painting has a direct **Download for phone** shortcut and a large black-and-white QR code that opens its full-size phone PNG. QR codes are generated locally during the build, include a four-module white margin, and display at 320 pixels (shrinking only to fit narrow screens). No external QR service is used. The build decodes each code and checks its destination against the phone download. Samsung setup steps are included; the phone must confirm applying a wallpaper.
+
 ## The initial artwork
 
 There are three paintings: **Quiet Snowy Mountain Mosaic**, **Lyrical Wildflower Meadow**, and **Vaporous Nocturne over Fading Mountains**. Each has the exact supplied portrait and a separately generated landscape adaptation. At Ian's request, the nocturne was then revised in both landscape and a separately composed portrait using the Bauhaus painting language of the first two works. Its original atmospheric portrait and first landscape are also preserved in `assets/masters/` as previous sources. The nocturne downloads now use the two Bauhaus compositions.

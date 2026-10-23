@@ -60,6 +60,20 @@
   .download-info { font-size: .74rem; line-height: 1.6; color: var(--muted); margin-block: 12px 18px; }
   .download-button { background: var(--paper); color: #171a17; display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 48px; padding: 12px 18px; font-size: .88rem; text-decoration: none; }
   .download-button:hover { background: #fff; color: #171a17; }
+  .phone-shortcut { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+  .phone-shortcut .download-button { min-width: 240px; }
+  .phone-shortcut p { font-size: .8rem; }
+  .phone-setup { border-top: 1px solid var(--line); padding-block: 36px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 48px; align-items: start; scroll-margin-top: 24px; }
+  .phone-setup h2 { font-size: 29px; margin-bottom: 16px; }
+  .phone-setup h3 { font-size: 1rem; margin-block: 24px 10px; }
+  .phone-guide { max-width: 680px; font-size: .9rem; }
+  .phone-guide p { margin-bottom: 14px; }
+  .phone-guide ol { padding-left: 22px; }
+  .phone-guide li { margin-bottom: 10px; }
+  .setup-source { font-size: .8rem; }
+  .phone-qr { margin: 0; width: 320px; max-width: 100%; }
+  .phone-qr img { width: 100%; aspect-ratio: 1; background: #fff; image-rendering: pixelated; }
+  .phone-qr figcaption { margin-top: 12px; color: var(--muted); font-size: .8rem; }
   .format-notes { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .format-notes summary { cursor: pointer; padding: 22px 0; font-size: .84rem; }
   .format-notes > div { color: #bfc3bb; max-width: 800px; padding-bottom: 25px; font-size: .88rem; }
@@ -79,6 +93,7 @@
   .featured { grid-column: auto; }
   .download-panel { grid-template-columns: 1fr; gap: 28px; }
   .download-controls { max-width: 500px; }
+  .phone-setup { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .about { grid-template-columns: 1fr; gap: 25px; margin-top: 70px; }
   footer { flex-wrap: wrap; }
 }

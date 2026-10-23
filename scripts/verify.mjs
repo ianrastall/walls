@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
+import jsQR from 'jsqr';
 
 process.chdir(fileURLToPath(new URL('../', import.meta.url)));
 const artworks = JSON.parse(await readFile('src/generated/artworks.json', 'utf8'));
@@ -42,6 +43,21 @@ for (const file of all.filter(f=>f.endsWith('.html'))) {
   assert.ok(html.includes('lang="en"'));
   assert.ok(html.includes('name="description"'));
   assert.ok(!/<img\b[^>]*src="[^"]+\.png"/i.test(html), 'Full PNG must never be an inline gallery image');
+  if (html.includes('data-phone-qr')) {
+    const qrData = html.match(/data-phone-qr[^>]*src="data:image\/png;base64,([^"]+)"/)?.[1];
+    assert.ok(qrData, 'Phone QR image must be embedded locally');
+    const { data, info } = await sharp(Buffer.from(qrData, 'base64')).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+    const decoded = jsQR(new Uint8ClampedArray(data), info.width, info.height);
+    assert.ok(decoded, `${file}: phone QR code cannot be decoded`);
+    const phonePath = html.match(/data-phone-download[^>]*href="([^"]+)"/)?.[1];
+    assert.ok(phonePath, 'Phone QR must have an accessible download alternative');
+    assert.equal(decoded.data, new URL(phonePath, 'https://ianrastall.github.io').href, 'QR must open the same phone image as the download button');
+    const small = await sharp(Buffer.from(qrData, 'base64')).resize(280, 280, { kernel: 'nearest' }).ensureAlpha().raw().toBuffer();
+    assert.equal(jsQR(new Uint8ClampedArray(small), 280, 280)?.data, decoded.data, 'QR must also decode at its narrow-phone display size');
+    const slug = file.split(path.sep).at(-2);
+    const phone = artworks.find(a => a.slug === slug)?.downloads.find(d => d.id === 'phone');
+    assert.ok(phone && phonePath.startsWith(`/walls/${phone.url}?v=`), 'QR and shortcut must target this artwork’s phone PNG');
+  }
   const refs = [...html.matchAll(/(?:href|src|data-preview)="([^"]+)"/g)].map(m=>m[1]);
   for (const match of html.matchAll(/srcset="([^"]+)"/g)) refs.push(...match[1].split(',').map(s=>s.trim().split(/\s+/)[0]));
   for (const ref of refs) {
